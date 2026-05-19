@@ -1,6 +1,6 @@
 # rom_organizer
 
-A Python script for sorting [No-Intro](https://no-intro.org/) ROM sets into subfolders by release type and language. Assumes your collection is already organized by system — this handles the sub-sorting within each folder.
+A Python script for sorting [No-Intro](https://no-intro.org/) ROM sets into subfolders by release type and language. Assumes your collection is already organized by system - this handles the sub-sorting within each folder.
 Written for personal use, but apparently useful enough to share. Prioritizes English and Japanese since those are the most relevant for RetroAchievements and handheld emulation.
 
 ---
@@ -33,7 +33,7 @@ python rom_organizer.py "G:/ROMs/Nintendo - Game Boy Advance" --dry-run --log pr
 python rom_organizer.py "G:/ROMs/Nintendo - Game Boy Advance" --log gba_moves.log
 ```
 
-If you're running from a system directory (e.g. `C:\Windows\System32`), use a full path for `--log` — relative paths resolve from wherever you launched the script.
+If you're running from a system directory (e.g. `C:\Windows\System32`), use a full path for `--log` - relative paths resolve from wherever you launched the script.
 
 ---
 
@@ -66,17 +66,17 @@ Nintendo - Game Boy Advance/
 
 English and Japanese get top-level folders since they're the most common browsing targets. Everything else goes under `Other Localizations/`. Non-retail releases (betas, demos, etc.) land in `_Other/`, with ROM hacks promoted to the top level since those are worth browsing separately.
 
-`Unknown/` catches anything the script couldn't classify — worth a manual look after your first run.
+`Unknown/` catches anything the script couldn't classify - worth a manual look after your first run.
 
 ---
 
 ## How Classification Works
 
-Files are evaluated in this order — first match wins:
+Files are evaluated in this order - first match wins:
 
-1. **BIOS** — filename starts with `[BIOS]` → `_BIOS/`
-2. **Special tag** — matched against No-Intro tags → `_Other/<tag>/` or top-level if promoted
-3. **Language/region** — everything else, sorted by language
+1. **BIOS** - filename starts with `[BIOS]` → `_BIOS/`
+2. **Special tag** - matched against No-Intro tags → `_Other/<tag>/` or top-level if promoted
+3. **Language/region** - everything else, sorted by language
 
 ### Special Tags
 
@@ -97,11 +97,11 @@ Files matching multiple tags go to the first match in the order above. No duplic
 
 For retail releases, language is determined in this order:
 
-1. Explicit language tag — `(En)`, `(En,Ja)`, `(De)`, etc.
+1. Explicit language tag - `(En)`, `(En,Ja)`, `(De)`, etc.
    - English anywhere in the tag → `English/`
    - Otherwise, first recognized code wins
-2. Single region tag — `(USA)` → English, `(Japan)` → Japanese, etc.
-3. Multi-region tag — `(USA, Europe)`, `(Japan, USA)` — English wins if any region implies it
+2. Single region tag - `(USA)` → English, `(Japan)` → Japanese, etc.
+3. Multi-region tag - `(USA, Europe)`, `(Japan, USA)` - English wins if any region implies it
 4. No match → `_Other/Unknown/`
 
 ---
@@ -146,7 +146,7 @@ PRIMARY_LANGUAGES = {"English", "Japanese", "Korean"}
 
 ## Notes
 
-Files are **moved**, not copied — the log file is your only undo trail, so keep it. If a filename collision occurs (e.g. from a partial previous run), the incoming file gets a `_dup` suffix instead of overwriting.
+Files are **moved**, not copied - the log file is your only undo trail, so keep it. If a filename collision occurs (e.g. from a partial previous run), the incoming file gets a `_dup` suffix instead of overwriting.
 
 Built for No-Intro naming. Redump, TOSEC, and GoodTools sets use different conventions and will likely need adjustments.
 
