@@ -1,6 +1,7 @@
 # rom_organizer
 
-A Python script for sorting [No-Intro](https://no-intro.org/) ROM sets into subfolders by release type and language. Assumes your collection is already organized by system — this just handles the sub-sorting within each system folder.
+A Python script for sorting [No-Intro](https://no-intro.org/) ROM sets into subfolders by release type and language. Assumes your collection is already organized by system — this handles the sub-sorting within each folder.
+Written for personal use, but apparently useful enough to share. Prioritizes English and Japanese since those are the most relevant for RetroAchievements and handheld emulation.
 
 ---
 
